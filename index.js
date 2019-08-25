@@ -35,7 +35,7 @@ const chart = (data)=>{
       width = 360 - margin.left - margin.right,
       height = 200 - margin.top - margin.bottom;
 
-// append the svg object to the body of the page
+// append the svg object to the chart id in the page
   let svg = d3.select("#chart")
       .attr("class","chart")
       .append("svg")
@@ -89,8 +89,7 @@ const chart = (data)=>{
       .style("text-anchor", "middle")
       .text(`Population mean \u03BC `)	
 }
-// set the dimensions and margins of the graph
-// Data(10);
+
 let increment = 0;
 const incrementor = (incrementBy)=>{increment+= incrementBy; return increment}
 
