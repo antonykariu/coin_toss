@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Mapping</title>
+	<link rel="stylesheet" href="">
+	<script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+<body>
+	<style type="text/css" media="screen">
+	   body{
+	   	background-color: #F1F1F1;
+	   }
+      .chart{
+       	height: 75vh;
+        width: 90vw;
+        display: grid;
+        padding: 10px 0 0 10px;
+        margin: auto;
+        border-radius: 5px;
+		background-color: rgba(0, 0, 0, 0.1);
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-column-gap: 5px;
+        grid-template-rows: auto;
+        grid-row-gap: 5px;
+        overflow-y: scroll;
+        box-shadow: 1px 1px 5px #646464;
+      }
+      .chart::-webkit-scrollbar {
+        width: 1em;
+      }
+      .chart::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        border-radius: 15px;
+      }
+      .chart::-webkit-scrollbar-thumb {
+        background-color: #507674;
+        border-radius: 15px;
+        outline: 1px solid slategrey;
+      }
+      .chart::-webkit-scrollbar-thumb:hover {
+        background-color: #2E5554;
+      }
+
+      h1{
+      	text-align: center;
+      	color: #004C49;
+      }
+      @media only screen and (max-width: 1230px) {
+	  	.chart{
+	  		width: 830px;
+	  		grid-template-columns: 1fr 1fr;
+	  	}
+	  }
+      @media only screen and (max-width: 850px) {
+	  	.chart{
+	  		grid-template-columns: 1fr;
+	  		width: 430px;
+	  	}
+	  }
+	</style>
+<h1>Population mean of coin tosses</h1>
+
+<div id="chart">
+
+</div>
+<script src="./index.js"></script>
+</body>
+</html>
