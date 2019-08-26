@@ -6,6 +6,7 @@
 	<title>Mapping</title>
 	<link rel="stylesheet" href="">
 	<script src="https://d3js.org/d3.v5.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
 	<style type="text/css" media="screen">
@@ -61,7 +62,14 @@
 	  }
 	</style>
 <h1>Population mean of coin tosses</h1>
-
+<div>
+  <form style="text-align: center; margin: 5px;">
+      <input type="number" min="10" max="1000" step="10" required id="input">
+      <button class="btn btn-outline-secondary" type="submit" id="submit">submit</button>
+      <button class="btn btn-outline-secondary" type="submit" id="submit2">without incrementing</button>
+      <button class="btn btn-outline-secondary" type="submit" id="submit3">Animate</button>
+  </form>
+</div>
 <div id="chart">
 
 </div>

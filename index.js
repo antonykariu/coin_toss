@@ -57,7 +57,7 @@ const chart = (data)=>{
 
   // Add Y axis
   let y = d3.scaleLinear()
-      .domain([0, d3.max(data, d=>{return d[0]})])
+      .domain([0, d3.max(data, d=>{return 1})])
       .range([ height, 0 ]);
     
   svg.append("g")
@@ -89,8 +89,52 @@ const chart = (data)=>{
       .style("text-anchor", "middle")
       .text(`Population mean \u03BC `)	
 }
+const mapper = (value,inc) =>{
+  let increment = 0;
+  const incrementor = (incrementBy)=>{increment+= incrementBy; return increment;}
+  setInterval(()=>{if(increment < value){Data(incrementor(inc));chart(data)};}, 100);
+}
+mapper(10,10)
 
-let increment = 0;
-const incrementor = (incrementBy)=>{increment+= incrementBy; return increment}
+const submit = document.getElementById('submit');
+const submit2 = document.getElementById('submit2');
+const submit3 = document.getElementById('submit3');
+const mychart = document.getElementById('chart');
+const myinput = document.getElementById('input');
 
-setInterval(()=>{if(increment <= 1000){Data(incrementor(10));chart(data)};}, 100);
+submit.addEventListener('click',event=>{
+  if(mychart.innerHTML.length > 2){
+    mychart.innerHTML = '';
+  }
+  let value = myinput.value;
+  mapper(value,10);
+  event.preventDefault();
+});
+submit2.addEventListener('click', event=>{
+  if(mychart.innerHTML.length > 2){
+    mychart.innerHTML = '';
+  }
+  let value = myinput.value;
+  Data(value);
+  chart(data);
+  event.preventDefault();
+});
+submit3.addEventListener('click',event=>{
+  if(mychart.innerHTML.length > 2){
+    mychart.innerHTML = '';
+  }
+  let myvalue = myinput.value;
+  let increment = 0;
+  const incrementor = (incrementBy)=>{increment+= incrementBy; return increment;}
+  setInterval(()=>{
+    if(increment < myvalue){
+      if(mychart.innerHTML.length > 2){
+        mychart.innerHTML = '';
+      }
+      Data(incrementor(10));
+      chart(data);
+    };
+  }, 100);
+  event.preventDefault();
+});
+
